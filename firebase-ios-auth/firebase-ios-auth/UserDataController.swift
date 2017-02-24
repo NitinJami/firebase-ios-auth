@@ -48,7 +48,7 @@ class UserDataController: UIViewController {
     }
     
     @IBAction func handleUser2Data(_ sender: UIButton) {
-        USER_REF.child("X4bCSWH5R6Mdbw4QPh0zYBWCTT32").observeSingleEvent(of: .value, with: { (snapshot) in
+        USER_REF.child("j0UjaI0VK8SoGB0TnVD8fdbWykl1").observeSingleEvent(of: .value, with: { (snapshot) in
             self.userData.text = (snapshot.childSnapshot(forPath: "phone").value as! String)
         })
     }
