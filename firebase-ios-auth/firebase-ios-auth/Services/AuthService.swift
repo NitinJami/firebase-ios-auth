@@ -7,9 +7,3 @@
 //
 
 import Foundation
-import Firebase
-
-class AuthService {
-    static let authService = AuthService()
-    
-}

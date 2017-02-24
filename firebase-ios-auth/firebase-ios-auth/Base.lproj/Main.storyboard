@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -94,7 +93,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Error Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RAN-5M-xHj">
-                                <rect key="frame" x="16" y="465" width="343" height="21"/>
+                                <rect key="frame" x="16" y="465" width="343" height="57"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -106,6 +105,14 @@
                                 <state key="normal" title="Create Account"/>
                                 <connections>
                                     <action selector="handleCreateAccount:" destination="BYZ-38-t0r" eventType="touchUpInside" id="V7H-xi-XCS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j2C-LO-xv4">
+                                <rect key="frame" x="143" y="394" width="89" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Current User"/>
+                                <connections>
+                                    <action selector="handleCurrentUser:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JA6-nb-hHB"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -137,12 +144,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello User" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PcF-b3-Nj2">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hello User" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PcF-b3-Nj2">
                                 <rect key="frame" x="16" y="28" width="343" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="343" id="bjV-wb-p0u"/>
-                                    <constraint firstAttribute="height" constant="40" id="pou-Qs-b8a"/>
-                                </constraints>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -151,16 +155,25 @@
                                 <rect key="frame" x="131" y="107" width="113" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="View User1 Data"/>
+                                <connections>
+                                    <action selector="handleUser1Data:" destination="EUr-pA-A13" eventType="touchUpInside" id="J6l-wM-nJP"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kmL-kl-JcP">
                                 <rect key="frame" x="130" y="181" width="115" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="View User2 Data"/>
+                                <connections>
+                                    <action selector="handleUser2Data:" destination="EUr-pA-A13" eventType="touchUpInside" id="JwL-Kx-l8n"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gi0-8L-TJJ">
                                 <rect key="frame" x="130" y="265" width="115" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="View User3 Data"/>
+                                <connections>
+                                    <action selector="handlerUser3Data:" destination="EUr-pA-A13" eventType="touchUpInside" id="bDk-yM-N3x"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="This is User's Data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gGh-Cn-14N">
                                 <rect key="frame" x="16" y="399" width="343" height="100"/>
@@ -179,11 +192,6 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="PcF-b3-Nj2" firstAttribute="top" secondItem="Dwb-Xh-Gtb" secondAttribute="bottom" constant="8" id="1qL-AC-A13"/>
-                            <constraint firstItem="PcF-b3-Nj2" firstAttribute="leading" secondItem="SPe-c4-Qqm" secondAttribute="leadingMargin" id="fry-8f-6L1"/>
-                            <constraint firstItem="PcF-b3-Nj2" firstAttribute="trailing" secondItem="SPe-c4-Qqm" secondAttribute="trailingMargin" id="lQL-to-DmG"/>
-                        </constraints>
                     </view>
                     <connections>
                         <outlet property="greeting" destination="PcF-b3-Nj2" id="8pd-UB-W3V"/>

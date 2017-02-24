@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import FirebaseDatabase
 
-let BASE_URL = "https://fir-ios-auth-2358e.firebaseio.com/"
-		
+let BASE_REF = FIRDatabase.database().reference()
+let USER_REF = BASE_REF.child("Users")
