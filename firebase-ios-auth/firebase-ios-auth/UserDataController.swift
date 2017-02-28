@@ -13,7 +13,7 @@ import FirebaseDatabase
 class UserDataController: UIViewController {
     
     @IBOutlet weak var greeting: UILabel!
-    @IBOutlet weak var userData: UILabel!
+    @IBOutlet weak var userData: UITextView!
     var currentUser: FIRUser?
     
     override func viewDidLoad() {
@@ -42,22 +42,35 @@ class UserDataController: UIViewController {
     }
     
     @IBAction func handleUser1Data(_ sender: UIButton) {
-        USER_REF.child("fPwpGkIUV7RV5AmrNzzwLwmBqlD2").observeSingleEvent(of: .value, with: { (snapshot) in
-            self.userData.text = (snapshot.childSnapshot(forPath: "phone").value as! String)
-        })
+        self.userData.text = ""
+        for each in ["Sy20atQplcbhS2ZicbtrQhFLAeh1", "8vKQNc4OzSaCPyuqfXXPJJpiwM22"] {
+            USER_REF.child("vendors").child(each).observeSingleEvent(of: .value, with: { (snapshot) in
+                self.userData.text = self.userData.text + (snapshot.childSnapshot(forPath: "phone").value as! String) + "\n"
+            }) { (error) in
+                self.userData.text = self.userData.text + error.localizedDescription + "\n"
+            }
+        }
     }
     
     @IBAction func handleUser2Data(_ sender: UIButton) {
-        USER_REF.child("j0UjaI0VK8SoGB0TnVD8fdbWykl1").observeSingleEvent(of: .value, with: { (snapshot) in
-            self.userData.text = (snapshot.childSnapshot(forPath: "phone").value as! String)
-        })
+        self.userData.text = ""
+        for each in ["v9Fe39uusubOzjg0MW2wPTBp5f83"] {
+            USER_REF.child("drivers").child(each).observeSingleEvent(of: .value, with: { (snapshot) in
+                self.userData.text = self.userData.text + (snapshot.childSnapshot(forPath: "phone").value as! String) + "\n"
+            }) { (error) in
+                self.userData.text = self.userData.text + error.localizedDescription + "\n"
+            }
+        }
     }
     
     @IBAction func handlerUser3Data(_ sender: UIButton) {
-        USER_REF.child("DInZW9vFBkO5XIFox6TcaWb0qb42").observeSingleEvent(of: .value, with: { (snapshot) in
-            self.userData.text = (snapshot.childSnapshot(forPath: "phone").value as! String)
-        })
+        self.userData.text = ""
+        for each in ["DInZW9vFBkO5XIFox6TcaWb0qb42", "fPwpGkIUV7RV5AmrNzzwLwmBqlD2", "j0UjaI0VK8SoGB0TnVD8fdbWykl1"] {
+            USER_REF.child("eaters").child(each).observeSingleEvent(of: .value, with: { (snapshot) in
+                self.userData.text = self.userData.text + (snapshot.childSnapshot(forPath: "phone").value as! String) + "\n"
+            }) { (error) in
+                self.userData.text = self.userData.text + error.localizedDescription + "\n"
+            }
+        }
     }
-    
-    
 }

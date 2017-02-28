@@ -10,4 +10,4 @@ import Foundation
 import FirebaseDatabase
 
 let BASE_REF = FIRDatabase.database().reference()
-let USER_REF = BASE_REF.child("Users")
+let USER_REF = BASE_REF.child("users")

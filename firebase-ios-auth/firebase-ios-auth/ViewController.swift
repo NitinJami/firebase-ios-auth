@@ -56,7 +56,7 @@ class ViewController: UIViewController {
     
     @IBAction func handleCreateAccount(_ sender: UIButton) {
         
-        guard let username = username.text,
+        /*guard let username = username.text,
               let password = password.text,
               let name = name.text,
               let phone = phone.text,
@@ -78,7 +78,7 @@ class ViewController: UIViewController {
                 self.errorStatus.textColor = UIColor.green
                 self.errorStatus.isHidden = false
             }
-        })
+        })*/
     }
     
     @IBAction func handleCurrentUser(_ sender: UIButton) {

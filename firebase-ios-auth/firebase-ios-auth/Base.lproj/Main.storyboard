@@ -152,36 +152,29 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bDj-eD-t6b">
-                                <rect key="frame" x="131" y="107" width="113" height="30"/>
+                                <rect key="frame" x="16" y="76" width="50" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="View User1 Data"/>
+                                <state key="normal" title="Vendor"/>
                                 <connections>
                                     <action selector="handleUser1Data:" destination="EUr-pA-A13" eventType="touchUpInside" id="J6l-wM-nJP"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kmL-kl-JcP">
-                                <rect key="frame" x="130" y="181" width="115" height="30"/>
+                                <rect key="frame" x="166" y="76" width="42" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="View User2 Data"/>
+                                <state key="normal" title="Driver"/>
                                 <connections>
                                     <action selector="handleUser2Data:" destination="EUr-pA-A13" eventType="touchUpInside" id="JwL-Kx-l8n"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gi0-8L-TJJ">
-                                <rect key="frame" x="130" y="265" width="115" height="30"/>
+                                <rect key="frame" x="292" y="76" width="67" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="View User3 Data"/>
+                                <state key="normal" title="Customer"/>
                                 <connections>
                                     <action selector="handlerUser3Data:" destination="EUr-pA-A13" eventType="touchUpInside" id="bDk-yM-N3x"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="This is User's Data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gGh-Cn-14N">
-                                <rect key="frame" x="16" y="399" width="343" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TEa-uf-Mwh">
                                 <rect key="frame" x="44" y="617" width="60" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -190,12 +183,20 @@
                                     <action selector="handleSignOut:" destination="EUr-pA-A13" eventType="touchUpInside" id="iUp-MU-oW7"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="o48-kb-1yL" userLabel="user data">
+                                <rect key="frame" x="16" y="114" width="343" height="489"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="greeting" destination="PcF-b3-Nj2" id="8pd-UB-W3V"/>
-                        <outlet property="userData" destination="gGh-Cn-14N" id="OZA-jx-csX"/>
+                        <outlet property="userData" destination="o48-kb-1yL" id="Uqf-Mv-0bE"/>
                         <segue destination="BYZ-38-t0r" kind="showDetail" identifier="SuccessSignOut" id="ZWd-GR-2wn"/>
                     </connections>
                 </viewController>
