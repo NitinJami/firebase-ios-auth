@@ -17,7 +17,18 @@
 		E50EE9751E5F432300B22979 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E50EE9741E5F432300B22979 /* Assets.xcassets */; };
 		E50EE9781E5F432300B22979 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E50EE9761E5F432300B22979 /* LaunchScreen.storyboard */; };
 		E59D76B01E5F456C00599AF2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E59D76AF1E5F456C00599AF2 /* GoogleService-Info.plist */; };
+		E5F0FDDA1E6646EB00E56D47 /* firebase_ios_authTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F0FDD91E6646EB00E56D47 /* firebase_ios_authTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E5F0FDDC1E6646EB00E56D47 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E50EE9621E5F432200B22979 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E50EE9691E5F432200B22979;
+			remoteInfo = "firebase-ios-auth";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		6687273ED24E95F03BDCFDB5 /* Pods-firebase-ios-auth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-firebase-ios-auth.debug.xcconfig"; path = "Pods/Target Support Files/Pods-firebase-ios-auth/Pods-firebase-ios-auth.debug.xcconfig"; sourceTree = "<group>"; };
@@ -34,6 +45,9 @@
 		E50EE9771E5F432300B22979 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E50EE9791E5F432300B22979 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E59D76AF1E5F456C00599AF2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E5F0FDD71E6646EA00E56D47 /* firebase-ios-authTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "firebase-ios-authTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5F0FDD91E6646EB00E56D47 /* firebase_ios_authTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = firebase_ios_authTests.swift; sourceTree = "<group>"; };
+		E5F0FDDB1E6646EB00E56D47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +56,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				1FB6AD5F95F9A9410CC67036 /* Pods_firebase_ios_auth.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5F0FDD41E6646EA00E56D47 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				E50EE96C1E5F432300B22979 /* firebase-ios-auth */,
+				E5F0FDD81E6646EB00E56D47 /* firebase-ios-authTests */,
 				E50EE96B1E5F432300B22979 /* Products */,
 				584F3060554DF8E7795DA216 /* Pods */,
 				6C59964FE1F652AC6E95B16B /* Frameworks */,
@@ -94,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				E50EE96A1E5F432300B22979 /* firebase-ios-auth.app */,
+				E5F0FDD71E6646EA00E56D47 /* firebase-ios-authTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -114,6 +137,15 @@
 				E59D76AF1E5F456C00599AF2 /* GoogleService-Info.plist */,
 			);
 			path = "firebase-ios-auth";
+			sourceTree = "<group>";
+		};
+		E5F0FDD81E6646EB00E56D47 /* firebase-ios-authTests */ = {
+			isa = PBXGroup;
+			children = (
+				E5F0FDD91E6646EB00E56D47 /* firebase_ios_authTests.swift */,
+				E5F0FDDB1E6646EB00E56D47 /* Info.plist */,
+			);
+			path = "firebase-ios-authTests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +171,24 @@
 			productReference = E50EE96A1E5F432300B22979 /* firebase-ios-auth.app */;
 			productType = "com.apple.product-type.application";
 		};
+		E5F0FDD61E6646EA00E56D47 /* firebase-ios-authTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E5F0FDE01E6646EB00E56D47 /* Build configuration list for PBXNativeTarget "firebase-ios-authTests" */;
+			buildPhases = (
+				E5F0FDD31E6646EA00E56D47 /* Sources */,
+				E5F0FDD41E6646EA00E56D47 /* Frameworks */,
+				E5F0FDD51E6646EA00E56D47 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E5F0FDDD1E6646EB00E56D47 /* PBXTargetDependency */,
+			);
+			name = "firebase-ios-authTests";
+			productName = "firebase-ios-authTests";
+			productReference = E5F0FDD71E6646EA00E56D47 /* firebase-ios-authTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -153,6 +203,12 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 8U8JC9Z7EQ;
 						ProvisioningStyle = Automatic;
+					};
+					E5F0FDD61E6646EA00E56D47 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 8U8JC9Z7EQ;
+						ProvisioningStyle = Automatic;
+						TestTargetID = E50EE9691E5F432200B22979;
 					};
 				};
 			};
@@ -170,6 +226,7 @@
 			projectRoot = "";
 			targets = (
 				E50EE9691E5F432200B22979 /* firebase-ios-auth */,
+				E5F0FDD61E6646EA00E56D47 /* firebase-ios-authTests */,
 			);
 		};
 /* End PBXProject section */
@@ -183,6 +240,13 @@
 				E59D76B01E5F456C00599AF2 /* GoogleService-Info.plist in Resources */,
 				E50EE9751E5F432300B22979 /* Assets.xcassets in Resources */,
 				E50EE9731E5F432300B22979 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5F0FDD51E6646EA00E56D47 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,7 +313,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E5F0FDD31E6646EA00E56D47 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5F0FDDA1E6646EB00E56D47 /* firebase_ios_authTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E5F0FDDD1E6646EB00E56D47 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E50EE9691E5F432200B22979 /* firebase-ios-auth */;
+			targetProxy = E5F0FDDC1E6646EB00E56D47 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		E50EE9711E5F432300B22979 /* Main.storyboard */ = {
@@ -394,6 +474,34 @@
 			};
 			name = Release;
 		};
+		E5F0FDDE1E6646EB00E56D47 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 8U8JC9Z7EQ;
+				INFOPLIST_FILE = "firebase-ios-authTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jet.firebase-ios-authTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/firebase-ios-auth.app/firebase-ios-auth";
+			};
+			name = Debug;
+		};
+		E5F0FDDF1E6646EB00E56D47 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 8U8JC9Z7EQ;
+				INFOPLIST_FILE = "firebase-ios-authTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jet.firebase-ios-authTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/firebase-ios-auth.app/firebase-ios-auth";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -414,6 +522,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		E5F0FDE01E6646EB00E56D47 /* Build configuration list for PBXNativeTarget "firebase-ios-authTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5F0FDDE1E6646EB00E56D47 /* Debug */,
+				E5F0FDDF1E6646EB00E56D47 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
