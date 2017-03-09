@@ -24,7 +24,7 @@ protocol User {
     var welcomeMessage: String { get }
 }
 
-struct Vendor: User {
+struct Vendor {
     var firstName: String
     var lastName: String
     var phone: String

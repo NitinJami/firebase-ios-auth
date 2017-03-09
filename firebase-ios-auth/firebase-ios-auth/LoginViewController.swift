@@ -8,21 +8,24 @@
 
 import UIKit
 
-class LoginViewController: UIViewController, LoginViewControllerViewModelDelegate {
+class LoginViewController: UIViewController, UITextFieldDelegate, LoginViewControllerViewModelDelegate {
     
     @IBOutlet weak var appTitle: UILabel!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
-    let loginViewModel = LoginViewModel()
+    var loginViewModel = LoginViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         self.appTitle.text = "Firebase Auth Testing"
-
         loginViewModel.delegate = self
+        
+        // conform to textfield delegate methods
+        self.usernameTextField.delegate = self
+        self.passwordTextField.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,10 +41,29 @@ class LoginViewController: UIViewController, LoginViewControllerViewModelDelegat
     
     func moveToProfileView() {
         // segue to profile view
+        self.performSegue(withIdentifier: "signin", sender: self)
     }
     
-    func showAlertOnError() {
+    func showAlertOnError(description: String) {
         // show alert popup
+        let alert = UIAlertController(title: "Error!", message: description, preferredStyle: .alert)
+        let OKAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(OKAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    
+    // MARK: - TextField Delegate Methods
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        switch textField {
+        case usernameTextField:
+            loginViewModel.validateTextFields(textValue: textField.text!, fieldType: "uname")
+        case passwordTextField:
+            loginViewModel.validateTextFields(textValue: textField.text!, fieldType: "pword")
+        default:
+            showAlertOnError(description: "textFieldDidEndEditing -- Invalid text field.")
+        }
     }
     
 

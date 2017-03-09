@@ -68,10 +68,8 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
-                        <outlet property="AppName" destination="cSv-sl-jUp" id="PLN-GL-wA0"/>
                         <outlet property="appTitle" destination="cSv-sl-jUp" id="ghi-DM-s3P"/>
                         <outlet property="passwordTextField" destination="ltk-OX-4F1" id="QtI-e9-mha"/>
-                        <outlet property="title" destination="cSv-sl-jUp" id="IZw-au-yNS"/>
                         <outlet property="usernameTextField" destination="j3n-J4-D75" id="hVG-nY-EFP"/>
                         <segue destination="1TL-1W-hTS" kind="show" identifier="signin" action="showDetailViewController:sender:" id="BVd-b7-Ydc"/>
                     </connections>
@@ -83,7 +81,7 @@
         <!--Profile View Controller-->
         <scene sceneID="WW6-uj-aVm">
             <objects>
-                <viewController title="Profile View Controller" id="1TL-1W-hTS" sceneMemberID="viewController">
+                <viewController title="Profile View Controller" id="1TL-1W-hTS" customClass="ProfileViewController" customModule="firebase_ios_auth" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VuW-6v-Oh6"/>
                         <viewControllerLayoutGuide type="bottom" id="NiE-5c-stT"/>
@@ -122,11 +120,22 @@
                                 <rect key="frame" x="16" y="216" width="343" height="393"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellident" id="TZC-vl-w6Y">
+                                        <rect key="frame" x="0.0" y="28" width="343" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TZC-vl-w6Y" id="Sfk-HA-hrU">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="greeting" destination="mz3-WP-eWi" id="FpO-6U-otY"/>
                         <segue destination="BYZ-38-t0r" kind="showDetail" identifier="signout" id="FJy-UJ-uhC"/>
                     </connections>
                 </viewController>
