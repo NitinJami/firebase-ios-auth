@@ -9,27 +9,22 @@
 import Foundation
 import FirebaseAuth
 
-protocol LoginViewControllerViewModel {
-    var delegate: LoginViewControllerViewModelDelegate? { get set }
-    func signinButtonPressed()
-}
-
 // ViewModel should not talk to ViewController directly. 
-// It should only update notifiations via it's delegate.
-// ViewController owns ViewModel.
+// It should only update any changes via it's delegate.
 
-protocol LoginViewControllerViewModelDelegate {
+protocol LoginViewModelDelegate {
     func showAlertOnError(description: String)
     func moveToProfileView()
 }
 
-struct LoginViewModel: LoginViewControllerViewModel {
-    
-    internal var delegate: LoginViewControllerViewModelDelegate?
+class LoginViewModel: LoginNetworkDelegate {
+    internal var delegate: LoginViewModelDelegate?
     private var usernameTextValue: String
     private var passwordTextValue: String
-    private var isUsernameValid: Bool = false
-    private var isPasswordValid: Bool = false
+    private var isUsernameValid: Bool
+    private var isPasswordValid: Bool
+    
+    private var networkSerivce = LoginNetworkService()
     
     private var textFieldsValid: Bool {
         return isUsernameValid && isPasswordValid
@@ -38,9 +33,12 @@ struct LoginViewModel: LoginViewControllerViewModel {
     init() {
         self.usernameTextValue = ""
         self.passwordTextValue = ""
+        self.isUsernameValid = false
+        self.isPasswordValid = false
+        self.networkSerivce.delegate = self
     }
     
-    mutating func validateTextFields(textValue: String, fieldType: String) {
+    func validateTextFields(textValue: String, fieldType: String) {
         // Validate username and password should not have empty strings
         switch fieldType {
             case "uname" where textValue != "": isUsernameValid = true; usernameTextValue = textValue
@@ -50,20 +48,11 @@ struct LoginViewModel: LoginViewControllerViewModel {
             default: tellDelegateToShowAlertOnError(desc: "validateTextFields -- Improper textfield passed")
         }
     }
-    
+
     func signinButtonPressed() {
-        // Validate Username and Password Text Fields
         if textFieldsValid {
-            // firebase call to authenticate user
-            // if success -> tell delegate to move to profile view.
-            // if failure -> tell delegate to show alert with error desc.
-            FIRAuth.auth()?.signIn(withEmail: usernameTextValue, password: passwordTextValue, completion: { (user, error) in
-                if error != nil {
-                    self.tellDelegateToShowAlertOnError(desc: (error?.localizedDescription)!)
-                } else {
-                    self.tellDelegateToMoveToProfileView()
-                }
-            })
+            networkSerivce.signInViaFirebase(withEmail: usernameTextValue, andPassword: passwordTextValue)
+            // TODO: Code to start UI spinning indicator
         } else {
             tellDelegateToShowAlertOnError(desc: "Username and/or Password fields should not be empty")
         }
@@ -75,5 +64,16 @@ struct LoginViewModel: LoginViewControllerViewModel {
     
     func tellDelegateToShowAlertOnError(desc: String) {
         delegate?.showAlertOnError(description: desc)
+    }
+    
+    func didFinishNetworkCall() {
+        // TODO: Code to stop UI spinning indicator
+        
+        if let error = self.networkSerivce.error {
+            tellDelegateToShowAlertOnError(desc: error.localizedDescription)
+        }
+        // Sign-in Success
+
+        tellDelegateToMoveToProfileView()
     }
 }

@@ -7,55 +7,60 @@
 //
 
 import Foundation
+import FirebaseAuth
+import ObjectMapper
 
-protocol FullAddress {
-    var firstLine: String { get }
-    var secondLine: String? { get }
-    var city: String { get }
-    var state: String { get }
-    var zipcode: String { get }
+enum UserSection: Int {
+    case FullName, Email, Address, Phone, Count
+    
+    static var count = {
+        return UserSection.Count.rawValue
+    }
+    
+    static let profileTitles = [
+        FullName: "Full Name: ",
+        Email: "Email: ",
+        Address: "Address: ",
+        Phone: "Phone: "
+    ]
+    
+    func profileTitle() -> String {
+        if let profileTitle = UserSection.profileTitles[self] {
+            return profileTitle
+        } else {
+            return ""
+        }
+    }
 }
 
-protocol User {
-    var firstName: String { get set }
-    var lastName: String { get set }
-    var phone: String { get set }
-    var email: String { get set }
-    var welcomeMessage: String { get }
-}
-
-struct Vendor {
-    var firstName: String
-    var lastName: String
-    var phone: String
+class User: Mappable {
+    var fullname: String
     var email: String
+    var address: String
+    var phone: String
     
-    init(fname: String, lname: String, phone: String, email: String) {
-        self.firstName = fname
-        self.lastName = lname
-        self.phone = phone
-        self.email = email
+    required init?(map: Map) {
+        self.fullname = ""
+        self.address = ""
+        self.email = ""
+        self.phone = ""
+        if map.JSON["fullname"] as! String == "", map.JSON["email"] as! String == "", map.JSON["address"] as! String == "", map.JSON["phone"] as! String == "" {
+            return nil
+        }
     }
     
-    var welcomeMessage: String {
-        return "Welcome, \(self.firstName) \(self.lastName)! You are a Vendor."
+    func mapping(map: Map) {
+        fullname <- map["fullname"]
+        email <- map["email"]
+        address <- map["address"]
+        phone <- map["phone"]
     }
 }
 
-struct Driver: User {
-    var firstName: String
-    var lastName: String
-    var phone: String
-    var email: String
-    
-    init(fname: String, lname: String, phone: String, email: String) {
-        self.firstName = fname
-        self.lastName = lname
-        self.phone = phone
-        self.email = email
-    }
-    
-    var welcomeMessage: String {
-        return "Welcome, \(self.firstName) \(self.lastName)! You are a Driver."
+class SessionManager {
+    static let shared = SessionManager(currentUser: FIRAuth.auth()?.currentUser)
+    let currentUser: FIRUser?
+    private init (currentUser: FIRUser?) {
+        self.currentUser = currentUser
     }
 }

@@ -9,5 +9,6 @@ target 'firebase-ios-auth' do
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
+  pod 'ObjectMapper', '~> 2.2'
 
 end

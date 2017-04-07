@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController, UITextFieldDelegate, LoginViewControllerViewModelDelegate {
+class LoginViewController: UIViewController, UITextFieldDelegate, LoginViewModelDelegate {
     
     @IBOutlet weak var appTitle: UILabel!
     @IBOutlet weak var usernameTextField: UITextField!

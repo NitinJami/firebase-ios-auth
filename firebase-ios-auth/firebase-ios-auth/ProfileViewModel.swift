@@ -7,7 +7,31 @@
 //
 
 import Foundation
+import FirebaseAuth
 
-protocol ProfileViewControllerViewModelDelegate {
-    func updateUserModelToTableView()
+
+struct ProfileViewModel: ProfileNetworkDelegate {
+    
+    let networkService = ProfileNetworkService()
+    var delegate: ProfileNetworkDelegate?
+    
+    init() {
+        self.networkService.delegate = self
+        networkService.fetchViaFirebase()
+    }
+    
+    func getGreetingMessage() -> String {
+        if let fullname = networkService.user?.fullname {
+            return "Howdy, Welcome \(fullname)"
+        }
+        return ""
+    }
+    
+    func numberOfRows(ForSegmentOfType type: ProfileSection) -> Int {
+        return UserSection.count()
+    }
+    
+    func didFinishNetworkCall() {
+        self.delegate?.didFinishNetworkCall()
+    }
 }
