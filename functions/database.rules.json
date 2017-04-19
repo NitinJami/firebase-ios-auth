@@ -1,0 +1,30 @@
+{
+  "rules": {
+    "users": {
+      "vendors": {
+        ".read": "auth.provider != 'anonymous' && auth != null",
+        "$uid": {
+          // Authenticated users and users belonging to an Identity 
+          // Server should be able to read Vendor Data.
+          //".read": "$uid == auth.uid",
+          // Authenticated Vendors should be able to modify their own 
+          // data. When changing email address, FIRUser.updateEmail() 
+          // should also be called.
+          ".write": "$uid == auth.uid"
+        }
+      },
+      "drivers": {
+        "$uid": {
+          ".read": "auth.provider != 'anonymous' && auth != null",
+          ".write": "$uid == auth.uid"
+        }
+      },
+      "eaters": {
+        "$uid": {
+          ".read": "$uid == auth.uid || root.child('users').child('vendors').child(auth.uid).exists() || root.child('users').child('drivers').child(auth.uid).exists()",
+          ".write": "$uid == auth.uid"
+        }
+      }
+    }
+  }
+}

@@ -10,7 +10,7 @@ import Foundation
 import FirebaseAuth
 
 
-struct ProfileViewModel: ProfileNetworkDelegate {
+class ProfileViewModel: ProfileNetworkDelegate {
     
     let networkService = ProfileNetworkService()
     var delegate: ProfileNetworkDelegate?

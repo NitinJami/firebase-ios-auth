@@ -13,6 +13,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate, LoginViewModel
     @IBOutlet weak var appTitle: UILabel!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+
+    let activityIndicatorView = UIActivityIndicatorView()
     
     var loginViewModel = LoginViewModel()
     
@@ -26,6 +28,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate, LoginViewModel
         // conform to textfield delegate methods
         self.usernameTextField.delegate = self
         self.passwordTextField.delegate = self
+        
+        activityIndicatorView.center = self.view.center
+        activityIndicatorView.hidesWhenStopped = true
+        activityIndicatorView.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,12 +41,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate, LoginViewModel
     
     @IBAction func handleSignIn(_ sender: UIButton) {
         loginViewModel.signinButtonPressed()
+        view.addSubview(activityIndicatorView)
+        activityIndicatorView.startAnimating()
     }
     
     // MARK: - LoginViewModel Delegate Methods
     
     func moveToProfileView() {
         // segue to profile view
+        activityIndicatorView.stopAnimating()
         self.performSegue(withIdentifier: "signin", sender: self)
     }
     
@@ -65,7 +74,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate, LoginViewModel
             showAlertOnError(description: "textFieldDidEndEditing -- Invalid text field.")
         }
     }
-    
 
     /*
     // MARK: - Navigation

@@ -43,11 +43,18 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         self.tableView.dataSource = self
         self.profileViewModel.delegate = self
     }
+    
+    // MARK :- Button Handlers
    
     @IBAction func LogOutHandler(_ sender: UIButton) {
         try! FIRAuth.auth()?.signOut()
         self.performSegue(withIdentifier: "segueProfileVCToLoginVC", sender: self)
     }
+    
+    @IBAction func UsersButtonHandler(_ sender: UIButton) {
+        performSegue(withIdentifier: "segueProfileVCToUsersVC", sender: self)
+    }
+    
     
     // MARK :- UITableViewDataSource Protocol Methods
     
