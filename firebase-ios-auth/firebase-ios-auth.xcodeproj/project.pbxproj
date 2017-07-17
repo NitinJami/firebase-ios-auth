@@ -107,7 +107,6 @@
 		E50A65171E5F622F009A18BF /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				E50A651D1E5F6A29009A18BF /* LoginNetworkService.swift */,
 				E5E87AE71E95C0CF000D6E45 /* ProfileNetworkService.swift */,
 			);
 			name = Services;
@@ -144,17 +143,44 @@
 		E50EE96C1E5F432300B22979 /* firebase-ios-auth */ = {
 			isa = PBXGroup;
 			children = (
+				E5652D381EB280EE0017EA6A /* Scene */,
 				E5E913B31E6B4F8B00081B88 /* View */,
 				E5F99E4C1E6795050048193A /* ViewModel */,
 				E50A65181E5F6239009A18BF /* Model */,
 				E50A65171E5F622F009A18BF /* Services */,
-				E50EE96D1E5F432300B22979 /* AppDelegate.swift */,
-				E50A651B1E5F68BC009A18BF /* Constants.swift */,
 				E50EE9741E5F432300B22979 /* Assets.xcassets */,
 				E50EE9791E5F432300B22979 /* Info.plist */,
 				E59D76AF1E5F456C00599AF2 /* GoogleService-Info.plist */,
 			);
 			path = "firebase-ios-auth";
+			sourceTree = "<group>";
+		};
+		E5652D381EB280EE0017EA6A /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				E56EDE4E1EB7FC40001EFE57 /* Login */,
+				E5652D391EB280FA0017EA6A /* app */,
+			);
+			name = Scene;
+			sourceTree = "<group>";
+		};
+		E5652D391EB280FA0017EA6A /* app */ = {
+			isa = PBXGroup;
+			children = (
+				E50EE96D1E5F432300B22979 /* AppDelegate.swift */,
+				E50A651B1E5F68BC009A18BF /* Constants.swift */,
+			);
+			name = app;
+			sourceTree = "<group>";
+		};
+		E56EDE4E1EB7FC40001EFE57 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				E550806D1E6CE51F006148C0 /* LoginViewController.swift */,
+				E5F99E4D1E6795150048193A /* LoginViewModel.swift */,
+				E50A651D1E5F6A29009A18BF /* LoginNetworkService.swift */,
+			);
+			name = Login;
 			sourceTree = "<group>";
 		};
 		E5E913B31E6B4F8B00081B88 /* View */ = {
@@ -170,7 +196,6 @@
 		E5E913B41E6B4FA000081B88 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				E550806D1E6CE51F006148C0 /* LoginViewController.swift */,
 				E56367AA1E6DFB1700AFF7BB /* ProfileViewController.swift */,
 				E5FADDD31EA82BC1006626F4 /* VendorBalanceViewController.swift */,
 				E537EB7B1EABD8D9009B272E /* TransactionHistoryViewController.swift */,
@@ -190,7 +215,6 @@
 		E5F99E4C1E6795050048193A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				E5F99E4D1E6795150048193A /* LoginViewModel.swift */,
 				E56367AD1E6DFBBF00AFF7BB /* ProfileViewModel.swift */,
 			);
 			name = ViewModel;

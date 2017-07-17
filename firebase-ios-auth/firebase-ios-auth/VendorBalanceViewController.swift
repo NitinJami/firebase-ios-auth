@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseDatabase
+import FirebaseAuth
 import ObjectMapper
 
 enum VendorBalanceSection: Int {
@@ -31,7 +32,7 @@ enum VendorBalanceSection: Int {
     }
 }
 
-struct Balance: Mappable {
+struct CustomerBalance: Mappable {
     var description: String!
     var id: String!
     var credit: Int!
@@ -97,7 +98,7 @@ class Worker {
         let ref = FIRDatabase.database().reference().child("balances_for_each_user")
         NetworkService.fetchItems(from: ref) { (items) in
             for (key, value) in items {
-                var balance = Balance(JSON: value)!
+                var balance = CustomerBalance(JSON: value)!
                 balance.id = key
                 self.customerBalanceViewModels.append(VendorBalanceViewModel(balanceModel: balance))
             }
@@ -138,9 +139,9 @@ struct VendorBalanceOverviewViewModel {
 }
 
 struct VendorBalanceViewModel {
-    private let balanceModel: Balance
+    private let balanceModel: CustomerBalance
     
-    init(balanceModel: Balance) {
+    init(balanceModel: CustomerBalance) {
         self.balanceModel = balanceModel
     }
     
@@ -198,6 +199,10 @@ class VendorBalanceViewController: UIViewController, UITableViewDataSource, UITa
     func displayFetched(with vendorBalance: VendorBalanceOverviewViewModel) {
         self.vendorBalanceOverview = vendorBalance
         tableView.reloadData()
+    }
+    
+    @IBAction func LogoutHandler(_ sender: UIButton) {
+        try! FIRAuth.auth()?.signOut()
     }
     
     // MARK :- UITableViewDataSource Protocol Methods
